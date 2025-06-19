@@ -1,4 +1,3 @@
-import style from './todo.module.css';
 import ToDoItem from './todoItem';
 export default function ToDoList({data,removeTodo,editTodo}){
     return(<>

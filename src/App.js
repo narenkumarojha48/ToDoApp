@@ -4,7 +4,7 @@ import ToDoList from './components/todo/todoList';
 import AddToDo from './components/todo/addToDo';
 import TaskCompleted from './components/todo/taskCompleted';
 import { data } from './components/todo/toDoData';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { toast } from 'react-toastify';
