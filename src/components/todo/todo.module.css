@@ -17,6 +17,12 @@
     /* flex-grow: 1; */
   max-height: 25px;
 }
+.completedtask{
+    background-color:burlywood;
+    color: green;
+    width: 100px;
+    font-size: 18px;
+}
 .priority{
     text-transform: uppercase;
 }
