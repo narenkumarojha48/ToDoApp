@@ -1,23 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
 
+import './App.css';
+import ToDoList from './components/todo/todoList';
+import AddToDo from './components/todo/addToDo';
+import { data } from './components/todo/toDoData';
+import { useEffect, useState } from 'react';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
 function App() {
+  const [todo,setTodo] = useState(data);
+  function addToDo(title,priority,completed){
+    setTodo([...todo, { id: Date.now(), title: title, priority: priority, completed: completed }])
+    toast.success('✅ Item added!');
+  }
+  function removeTodo(id){
+    let temp = todo.filter(item => item.id !== id)
+    setTodo(temp)
+  }
+  function editTodo(id,completed){
+    let temp = todo.map(itm=>{
+      if(itm.id===id){
+        return {...itm,completed}
+      }
+      return itm
+    });
+    setTodo(temp);
+    toast.success('✅ Task Completed!');
+  }
+ 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div className="app">
+      <header>
+       <p>To Do Application</p>
       </header>
+      
+      <section className=''>
+        <ToastContainer position="top-right" autoClose={3000} />
+        <AddToDo addToDo={addToDo}/>
+        <ToDoList data={todo} removeTodo={removeTodo} editTodo={editTodo}/>
+      </section>
+     
     </div>
   );
 }

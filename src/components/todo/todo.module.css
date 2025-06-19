@@ -1,0 +1,27 @@
+.app-header{
+
+}
+.itemcontainer{
+    display: grid;
+    border: 1px solid black;
+    gap: 5rem;
+    grid-template-columns: repeat(4,1fr);
+}
+.addTodo{
+    margin-bottom: 20px;
+}
+.title{
+    font-weight: bold;
+}
+.completed{
+    /* flex-grow: 1; */
+  max-height: 25px;
+}
+.priority{
+    text-transform: uppercase;
+}
+.delete{
+    color:red;
+    cursor: pointer;
+    
+}
